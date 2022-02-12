@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">RickAndMortyAPP</string>
+    <string name="title_activity_detail_compose">DetailComposeActivity</string>
+    <string name="title_activity_character_list">CharacterListActivity</string>
+</resources>
