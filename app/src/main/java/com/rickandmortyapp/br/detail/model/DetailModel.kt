@@ -11,7 +11,7 @@ import retrofit2.Response
 
 class DetailModel : DetailContract.Model {
     override fun fetchDetails(onFinishedListener: DetailContract.Model.OnFinishedListener, context: Context, id: Int) {
-        val api: RickAndMortyApi = RetrofitConfig.getClient(context).create(RickAndMortyApi::class.java)
+        val api: RickAndMortyApi = RetrofitConfig.getClient().create(RickAndMortyApi::class.java)
 
         api.getCharacter(id).enqueue(object : Callback<Character> {
             override fun onResponse(call: Call<Character>, response: Response<Character>) {

@@ -24,6 +24,7 @@ import com.rickandmortyapp.br.model.Character
 import com.rickandmortyapp.br.theme.RickAndMortyAPPTheme
 
 class DetailActivity : ComponentActivity(), DetailContract.View {
+
     override lateinit var presenter: DetailPresenter
 
     override fun onCreate(savedInstanceState: Bundle?) {

@@ -15,7 +15,7 @@ class ListModel : ListContract.Model {
         onFinishedListener: ListContract.Model.OnFinishedListener,
         context: Context
     ) {
-        val api: RickAndMortyApi = RetrofitConfig.getClient(context = context).create(RickAndMortyApi::class.java)
+        val api: RickAndMortyApi = RetrofitConfig.getClient().create(RickAndMortyApi::class.java)
 
         api.getCharactersList().enqueue(object : Callback<CharacterList> {
             override fun onResponse(

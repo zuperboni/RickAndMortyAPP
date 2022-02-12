@@ -2,12 +2,9 @@ package com.rickandmortyapp.br.list.presentation
 
 import android.content.Context
 import com.rickandmortyapp.br.model.Character
-import com.rickandmortyapp.br.mvp.BaseModel
-import com.rickandmortyapp.br.mvp.BasePresenter
-import com.rickandmortyapp.br.mvp.BaseView
 
 interface ListContract {
-    interface Model: BaseModel {
+    interface Model {
         interface OnFinishedListener {
             fun onFinished(list: List<Character>)
             fun onFailure(error: Throwable)
@@ -16,12 +13,13 @@ interface ListContract {
         fun fetchList(onFinishedListener: OnFinishedListener, context: Context)
     }
 
-    interface View: BaseView<ListPresenter> {
+    interface View {
+        var presenter: ListPresenter
         fun showError(error: Throwable)
         fun startDetailActivity(id: Int)
     }
 
-    interface Presenter: BasePresenter {
+    interface Presenter {
         fun getList()
     }
 }

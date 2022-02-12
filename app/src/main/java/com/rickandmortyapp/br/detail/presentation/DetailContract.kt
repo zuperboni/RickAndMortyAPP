@@ -2,13 +2,10 @@ package com.rickandmortyapp.br.detail.presentation
 
 import android.content.Context
 import com.rickandmortyapp.br.model.Character
-import com.rickandmortyapp.br.mvp.BaseModel
-import com.rickandmortyapp.br.mvp.BasePresenter
-import com.rickandmortyapp.br.mvp.BaseView
 
 interface DetailContract {
 
-    interface Model: BaseModel {
+    interface Model {
         interface OnFinishedListener {
             fun onFinished(detail: Character)
             fun onFailure(error: Throwable)
@@ -17,11 +14,13 @@ interface DetailContract {
         fun fetchDetails(onFinishedListener: OnFinishedListener, context: Context, id: Int)
     }
 
-    interface View: BaseView<DetailPresenter> {
+    interface View {
+        var presenter: DetailPresenter
+
         fun showError(error: Throwable)
     }
 
-    interface Presenter: BasePresenter {
+    interface Presenter {
         fun getDetails(id: Int)
     }
 }
